@@ -141,8 +141,8 @@ Mediana steps per day for a new data set is
 
 
 
-**Result:
-Impact of inserting mean values for NA is - mean do not changed and median changed very slightly. Histogram grews evenly.**  
+###Result:
+###Impact of inserting mean values for NA is - mean do not changed and median changed very slightly. Histogram grews evenly.  
 
   
   

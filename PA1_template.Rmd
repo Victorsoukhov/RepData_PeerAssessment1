@@ -124,8 +124,8 @@ median(stepsTotal2)
 
 
 
-**Result:
-Impact of inserting mean values for NA is - mean do not changed and median changed very slightly. Histogram grews evenly.**  
+###Result:
+###Impact of inserting mean values for NA is - mean do not changed and median changed very slightly. Histogram grews evenly.  
 
   
   
