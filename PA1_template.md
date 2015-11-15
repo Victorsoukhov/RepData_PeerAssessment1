@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -51,7 +56,7 @@ text(12000, 27, "Mean", col = "green")
 text(9000, 27, "Median", col = "blue")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 
 ## What is the average daily activity pattern?
@@ -71,7 +76,7 @@ points(MaxInterval, maxSteps, pch = 23, col="red", bg="red")
 text(MaxInterval+150, maxSteps, MaxInterval, col="red")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
 
 
 ## Imputing missing values
@@ -120,7 +125,7 @@ text(12000, 27, "Mean", col = "green")
 text(9000, 27, "Median", col = "blue")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
 
 Mean Steps per day for a new data set is
 
@@ -146,7 +151,7 @@ Impact of inserting mean values for NA is - mean do not changed and median chang
 Setting transformation constants and transform data with new factors
 
 ```r
-weekLab = c("РїРѕРЅРµРґРµР»СЊРЅРёРє","РІС‚РѕСЂРЅРёРє","СЃСЂРµРґР°","С‡РµС‚РІРµСЂРі","РїСЏС‚РЅРёС†Р°","СЃСѓР±Р±РѕС‚Р°","РІРѕСЃРєСЂРµСЃРµРЅСЊРµ")
+weekLab = c("понедельник","вторник","среда","четверг","пятница","суббота","воскресенье")
 weekfact = c("weekday","weekday","weekday","weekday","weekday","weekend","weekend")
 rd3 <-  transform(rd3, WF = factor(weekdays(rd3$date), exclude = TRUE, 
                                    levels = weekLab, labels = weekfact))
@@ -172,7 +177,7 @@ xyplot(stepPerInt3$x ~ stepPerInt3$Group.2 | stepPerInt3$Group.1, type = "l", la
 ## else paste0(labels, : duplicated levels in factors are deprecated
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-16-1.png) 
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png) 
 
 
 ###Conclusion:
