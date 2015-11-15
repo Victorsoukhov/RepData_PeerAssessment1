@@ -30,6 +30,17 @@ medST <- median(stepsTotal)
 
 ```
 
+Mean Steps per day is
+```{r echo=FALSE}
+meanST
+```
+
+Mediana steps per day is
+```{r echo=FALSE}
+medST
+```
+
+
 Display Histogram, mean and mediana
 ```{r}
 hist(stepsTotal, main = "Total Number of steps per day", col = "red")
@@ -51,7 +62,7 @@ maxSteps <- max(stepPerInt$x)
 MaxInterval <- stepPerInt$Group.1[stepPerInt$x==max(stepPerInt$x)]
 
 ```
-Then plot result. Point maximum of the interval and show it.
+Then plot result. Point maximum of steps and show it.
 ```{r}
 plot(x<- stepPerInt$Group.1, y <- stepPerInt$x, type = "l", xlab = "Steps", ylab = "Interval")
 points(MaxInterval, maxSteps, pch = 23, col="red", bg="red")
@@ -71,7 +82,7 @@ MissinVal <- nrow (rd[is.na(rd$steps),])
 MissinVal
 ```
 
-Devise a strategy for filling in all of the missing values in the dataset - Using mean for that 5-minute interval.
+**Devise a strategy for filling in all of the missing values in the dataset - Using mean for that 5-minute interval.**
 Create a new dataset that is equal to the original dataset but with the missing data filled in.
 ```{r}
 rd2 <- rd[is.na(rd$steps),]
@@ -92,7 +103,7 @@ stepsTotal2 <- tapply(rd3$steps, rd3$date, sum)
 Calculate and report the mean and median of the total number of steps taken per day
 Show like histogram with mean and mediana
 ```{r}
-hist(stepsTotal2, main = "Total Number of steps per day", col = "red")
+    hist(stepsTotal2, main = "Total Number of steps per day", col = "red")
 abline(v=mean(stepsTotal2), col="green", lwd=1)
 abline(v=median(stepsTotal2), col="blue", lwd=1)
 
@@ -101,8 +112,20 @@ text(9000, 27, "Median", col = "blue")
 
 ```
 
-###Result:
-###Impact of inserting mean values for NA is - mean and median do not changed. Histogram grews evenly.  
+Mean Steps per day for a new data set is
+```{r echo=FALSE}
+mean(stepsTotal2)
+```
+
+Mediana steps per day for a new data set is
+```{r echo=FALSE}
+median(stepsTotal2)
+```
+
+
+
+**Result:
+Impact of inserting mean values for NA is - mean do not changed and median changed very slightly. Histogram grews evenly.**  
 
   
   

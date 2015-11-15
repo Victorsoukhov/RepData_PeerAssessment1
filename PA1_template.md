@@ -1,9 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 ## Loading and preprocessing the data
@@ -32,6 +27,19 @@ meanST <- mean(stepsTotal)
 medST <- median(stepsTotal)
 ```
 
+Mean Steps per day is
+
+```
+## [1] 10766.19
+```
+
+Mediana steps per day is
+
+```
+## [1] 10765
+```
+
+
 Display Histogram, mean and mediana
 
 ```r
@@ -43,7 +51,7 @@ text(12000, 27, "Mean", col = "green")
 text(9000, 27, "Median", col = "blue")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
 
 
 ## What is the average daily activity pattern?
@@ -55,7 +63,7 @@ stepPerInt <- aggregate(rd1$steps, list(rd1$interval), mean)
 maxSteps <- max(stepPerInt$x)
 MaxInterval <- stepPerInt$Group.1[stepPerInt$x==max(stepPerInt$x)]
 ```
-Then plot result. Point maximum of the interval and show it.
+Then plot result. Point maximum of steps and show it.
 
 ```r
 plot(x<- stepPerInt$Group.1, y <- stepPerInt$x, type = "l", xlab = "Steps", ylab = "Interval")
@@ -63,7 +71,7 @@ points(MaxInterval, maxSteps, pch = 23, col="red", bg="red")
 text(MaxInterval+150, maxSteps, MaxInterval, col="red")
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
 
 
 ## Imputing missing values
@@ -82,7 +90,7 @@ MissinVal
 ## [1] 2304
 ```
 
-Devise a strategy for filling in all of the missing values in the dataset - Using mean for that 5-minute interval.
+**Devise a strategy for filling in all of the missing values in the dataset - Using mean for that 5-minute interval.**
 Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
 ```r
@@ -104,7 +112,7 @@ Calculate and report the mean and median of the total number of steps taken per 
 Show like histogram with mean and mediana
 
 ```r
-hist(stepsTotal2, main = "Total Number of steps per day", col = "red")
+    hist(stepsTotal2, main = "Total Number of steps per day", col = "red")
 abline(v=mean(stepsTotal2), col="green", lwd=1)
 abline(v=median(stepsTotal2), col="blue", lwd=1)
 
@@ -112,10 +120,24 @@ text(12000, 27, "Mean", col = "green")
 text(9000, 27, "Median", col = "blue")
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
 
-###Result:
-###Impact of inserting mean values for NA is - mean and median do not changed. Histogram grews evenly.  
+Mean Steps per day for a new data set is
+
+```
+## [1] 10766.19
+```
+
+Mediana steps per day for a new data set is
+
+```
+## [1] 10766.19
+```
+
+
+
+**Result:
+Impact of inserting mean values for NA is - mean do not changed and median changed very slightly. Histogram grews evenly.**  
 
   
   
@@ -124,7 +146,7 @@ text(9000, 27, "Median", col = "blue")
 Setting transformation constants and transform data with new factors
 
 ```r
-weekLab = c("ïîíåäåëüíèê","âòîðíèê","ñðåäà","÷åòâåðã","ïÿòíèöà","ñóááîòà","âîñêðåñåíüå")
+weekLab = c("Ð¿Ð¾Ð½ÐµÐ´ÐµÐ»ÑŒÐ½Ð¸Ðº","Ð²Ñ‚Ð¾Ñ€Ð½Ð¸Ðº","ÑÑ€ÐµÐ´Ð°","Ñ‡ÐµÑ‚Ð²ÐµÑ€Ð³","Ð¿ÑÑ‚Ð½Ð¸Ñ†Ð°","ÑÑƒÐ±Ð±Ð¾Ñ‚Ð°","Ð²Ð¾ÑÐºÑ€ÐµÑÐµÐ½ÑŒÐµ")
 weekfact = c("weekday","weekday","weekday","weekday","weekday","weekend","weekend")
 rd3 <-  transform(rd3, WF = factor(weekdays(rd3$date), exclude = TRUE, 
                                    levels = weekLab, labels = weekfact))
@@ -150,7 +172,7 @@ xyplot(stepPerInt3$x ~ stepPerInt3$Group.2 | stepPerInt3$Group.1, type = "l", la
 ## else paste0(labels, : duplicated levels in factors are deprecated
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-16-1.png) 
 
 
 ###Conclusion:
